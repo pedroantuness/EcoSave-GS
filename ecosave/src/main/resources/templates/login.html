@@ -1,0 +1,28 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho(#{pagina_login_cabecalho})}" />
+<body>
+	<div class="container">
+		<h1>
+			<b><span th:text="#{nome_sistema}">EcoSave</span></b>
+		</h1>
+		
+		<div th:if="${param.logout}">
+			<p style="color: green;"><span th:text="#{delogar}">Deslogado com sucesso</span></p>
+		</div>
+		
+		<form th:action="@{/login}" method="post">
+			<span th:text="#{usuario_sistema}">Usuário:</span> <input class="form-control" type="text" id="username" name="username"><br>
+			<span th:text="#{senha_sistema}">Senha:</span> <input class="form-control" type="password" id="password" name="password"><br>
+			
+			<div th:if="${param.falha}">
+				<p style="color: red;"><span th:text="#{falha_login}">Usuário e/ou senha inválidos</span></p>
+			</div>
+			
+			<button type="submit"><span th:text="#{botao_logar}">Confirmar</span></button>
+		</form>
+
+	</div>
+</body>
+</html>

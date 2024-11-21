@@ -1,0 +1,42 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho(#{titulo_index_endereco})}" />
+  <body>
+    <div class="container">
+        <div class="row">
+            <h1 th:text="#{titulo_index_endereco}">Lista De Endereços</h1>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" th:text="#{cep_endereco}">CEP</th>
+                            <th scope="col" th:text="#{numero_endereco}">Número</th>
+                            <th scope="col">#</th>
+                            <th scope="col">#</th>
+                            <th scope="col">#</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        <tr th:each="endereco : ${enderecos}">
+                            <th class="col-3" scope="row" th:text="${endereco.cep}">A</th>
+                            <td class="col-3" th:text="${endereco.numero}">B</td>
+							<td class="col-3"><a th:href="@{/detalhes_endereco/{idEndereco}(idEndereco = ${endereco.id})}" th:text="#{detalhes}">Detalhes</a></td>
+							<td class="col-3"><a th:href="@{/atualiza_endereco/{idEndereco}(idEndereco = ${endereco.id})}" th:text="#{atualizar}">Atualizar</a></td>
+							<td class="col-3"><a th:href="@{/remover_endereco/{idEndereco}(idEndereco = ${endereco.id})}" th:text="#{remover}">Remover</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <a href="/cadastro_endereco" th:text="#{cad_novo_endereco}">Cadastrar novo endereço</a>
+        </div>
+		<div class="row">
+			<a href="/index" th:text="#{volta_index}">Voltar ao inicio</a>
+		</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho(#{titulo_index_consumo})}" />
+  <body>
+    <div class="container">
+        <div class="row">
+            <h1 th:text="#{titulo_index_consumo}">Lista De Consumos</h1>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col" th:text="#{kwh}">KWH</th>
+                            <th scope="col" th:text="#{custo}">Custo</th>
+                            <th scope="col">#</th>
+                            <th scope="col">#</th>
+                            <th scope="col">#</th>
+                        </tr>
+                      </thead>
+                    <tbody>
+                        <tr th:each="consumo : ${consumos}">
+                            <th class="col-3" scope="row" th:text="${consumo.kwh}">A</th>
+                            <td class="col-3" th:text="${consumo.custo}">B</td>
+							<td class="col-3"><a th:href="@{/detalhes_consumo/{idConsumo}(idConsumo = ${consumo.id})}" th:text="#{detalhes}">Detalhes</a></td>
+							<td class="col-3"><a th:href="@{/atualiza_consumo/{idConsumo}(idConsumo = ${consumo.id})}" th:text="#{atualizar}">Atualizar</a></td>
+							<td class="col-3"><a th:href="@{/remover_consumo/{idConsumo}(idConsumo = ${consumo.id})}" th:text="#{remover}">Remover</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <a href="/cadastro_consumo" th:text="#{cad_novo_consumo}">Cadastrar novo consumo</a>
+        </div>
+		<div class="row">
+			<a href="/index" th:text="#{volta_index}">Voltar ao inicio</a>
+		</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>

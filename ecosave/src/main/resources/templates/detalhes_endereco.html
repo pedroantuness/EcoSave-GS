@@ -1,0 +1,58 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho(#{titulo_detalhes_endereco})}" />
+<body>
+	<div class="container">
+		<div class="row">
+			<h1 th:text="#{titulo_detalhes_endereco}">Detalhes do Endereco</h1>
+		</div>
+		<div class="row">
+
+
+			<table class="table table-hover">
+
+				<tr>
+
+					<td th:text="#{cep_endereco}">CEP:</td>
+					<td><span th:text="${endereco.cep}"></span></td>
+
+				</tr>
+
+				<tr>
+
+					<td th:text="#{numero_endereco}">Número:</td>
+					<td><span th:text="${endereco.numero}"></span></td>
+
+				</tr>
+
+				<tr>
+
+					<td th:text="#{complemento_endereco}">Complemento:</td>
+					<td><span th:text="${endereco.complemento}"></span></td>
+
+				</tr>
+
+				<tr>
+
+					<td th:text="#{nome_usuario_endereco}">Nome do Usuario:</td>
+					<td><span th:text="${endereco.usuario.nome}"></span></td>
+
+				</tr>
+
+			</table>
+
+
+
+
+		</div>
+		<div class="row">
+			<a href="/enderecos"><span th:text="#{retornar}"> Retornar </span></a>
+		</div>
+	</div>
+	<script
+		src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+		crossorigin="anonymous"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho(#{titulo_index_inicial})}" />
+<body>
+	
+	<div th:replace="~{fragmentos :: botao-logout}" />
+  	<div class="container">
+		
+		<div style="display: flex; align-items: center;">
+			<h1><span th:text="#{index_ola}">Olá, seja bem vindo!</span></h1>
+		</div>
+		<div class="row">
+			<div th:replace="~{fragmentos :: mudar_lingua(#{endpoint_pag_inicial})}" />
+		</div>
+		
+    	<h1 class="text-center mb-4" th:text="#{index_endpoints}">Endpoints</h1>
+    	<div class="list-group">
+      		<a href="http://localhost:8080/usuarios" class="list-group-item list-group-item-action" th:text="#{index_usuarios}">Usuarios</a>
+      		<a href="http://localhost:8080/enderecos" class="list-group-item list-group-item-action" th:text="#{index_endereco}">Endereços</a>
+      		<a href="http://localhost:8080/dispositivos" class="list-group-item list-group-item-action" th:text="#{index_dispositivos}">Dispositivos</a>
+			<a href="http://localhost:8080/comodos" class="list-group-item list-group-item-action" th:text="#{index_comodo}">Comodos</a>
+			<a href="http://localhost:8080/consumos" class="list-group-item list-group-item-action" th:text="#{index_consumo}">Consumos</a>
+			<a href="http://localhost:8080/pontos" class="list-group-item list-group-item-action" th:text="#{index_ponto}">Pontos</a>
+			<a href="http://localhost:8080/form_chat_gpt" class="list-group-item list-group-item-action" th:text="#{index_gpt}">Enviar sua pergunta</a>
+			<a href="http://localhost:8080/novo_cliente" class="list-group-item list-group-item-action" th:text="#{index_novo_usuario}">Casdastar novo Cliente</a>
+			<a href="http://localhost:8080/actuator" class="list-group-item list-group-item-action" th:text="#{index_actuator}">Spring Boot Actuator</a>
+    	</div>
+  	</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

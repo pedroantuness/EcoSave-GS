@@ -1,0 +1,24 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho(#{titulo_att_consumo})}" />
+  <body>
+    <div class="container">
+        <div class="row">
+            <h1 th:text="#{titulo_att_consumo}">Atualizar Consumo</h1>
+        </div>
+        <div class="row">
+            <form th:object="${consumo}" th:action="@{/atualizar_dados_consumo/{id}(id=${consumo.id})}" method="post">
+                <span th:text="#{kwh}"> KWH: </span><input class="form-control" type="text" th:field="*{kwh}" th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{kwh}"></div><br>
+                <span th:text="#{custo}"> Custo: </span><input class="form-control" type="text" th:field="*{custo}" th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{custo}"></div><br>
+                <span th:text="#{id_dispositivo}"> ID Dispositivo: </span><input class="form-control" type="text" th:field="*{dispositivo}" th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{dispositivo}"></div><br>
+            <button type="submit"><span th:text="#{btn_att_consumo}"> Atualizar Consumo </span></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>

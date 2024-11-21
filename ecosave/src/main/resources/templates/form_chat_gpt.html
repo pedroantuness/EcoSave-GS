@@ -1,0 +1,24 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos :: cabecalho(#{titulo_index_duvidas})}" />
+
+<body>
+
+	<div class="container">
+		<div>
+			<h1><span th:text="#{duvida_principal}">Tire suas duvidas aqui</span></h1>
+		</div>
+		<div>
+			<form th:action="@{/enviar_chat_gpt}" method="post">
+				<span th:text="#{digita_duvida}">Digite sua duvida:</span>
+				<input class="form-control" type="text" name="pergunta" id="pergunta"><br>
+				<button type="submit"><span th:text="#{btn_duvidas}">Perguntar</span> </button>
+			</form>
+		</div>
+
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho(#{titulo_att_usuario})}" />
+  <body>
+    <div class="container">
+        <div class="row">
+            <h1 th:text="#{titulo_att_usuario}">Atualizar Usuario</h1>
+        </div>
+        <div class="row">
+            <form th:object="${usuario}" th:action="@{/atualizar_dados_usuario/{id}(id=${usuario.id})}" method="post">
+                <span th:text="#{nome}"> Nome: </span><input class="form-control" type="text" th:field="*{nome}" th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{nome}"></div><br>
+                <span th:text="#{cpf}"> CPF: </span><input class="form-control" type="text" th:field="*{cpf}" th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{cpf}"></div><br>
+                <span th:text="#{email}"> E-mail: </span><input class="form-control" type="text" th:field="*{email}" th:errorclass="is-invalid">
+                <div class="invalid-feedback" th:errors="*{email}"></div><br>
+				<span th:text="#{telefone}"> Telefone: </span><input class="form-control" type="text" th:field="*{telefone}" th:errorclass="is-invalid">
+				<div class="invalid-feedback" th:errors="*{telefone}"></div><br>
+            <button type="submit"><span th:text="#{btn_att_usuario}"> Atualizar Usuario </span></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>

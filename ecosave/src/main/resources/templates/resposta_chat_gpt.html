@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos :: cabecalho(#{titulo_index_resposta})}" />
+
+<body>
+
+	<div class="container">
+
+		<div>
+			<h1><span th:text="#{resposta_principal}">Resposta gerada pelo ChatGPT</span></h1>
+		</div>
+		<br>
+		<div>
+			<h3><b>
+					<p th:text="${resposta}"></p>
+				</b></h3>
+		</div>
+		<br>
+		<div>
+			<a href="/form_chat_gpt"><span th:text="#{nova_pergunta}">Realizar uma nova pergunta</span></a>
+		</div>
+		<div class="row">
+			<a href="/index" th:text="#{volta_index}">Voltar ao inicio</a>
+		</div>
+
+	</div>
+
+</body>
+
+</html>

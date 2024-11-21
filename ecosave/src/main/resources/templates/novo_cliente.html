@@ -1,0 +1,38 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragmentos :: cabecalho(#{cad_novo_cliente})}" />
+
+<body>
+
+	<div class="container">
+
+		<div>
+			<h1><span th:text="#{cad_novo_cliente}"></span></h1>
+		</div>
+
+		<div>
+			<form th:object="${cliente}" action="/inserir_cliente" method="post">
+				<span th:text="#{nome}"> Nome: </span> <input class="form-control" type="text" th:field="*{nome}">
+				<span th:text="#{cad_cliente_apelido}"> Apelido: </span> <input class="form-control" type="text" th:field="*{username}">
+				<span th:text="#{cad_cliente_senha}"> Senha: </span> <input class="form-control" type="password" th:field="*{password}">
+				<span th:text="#{cad_cliente_permissao}"> Permissão: </span>
+				<select class="form-select" th:name="'id_role'">
+					<option th:each="role : ${roles}"
+					th:value="${role.id}"
+					th:text="${role.nome}">
+				</select>
+				
+				<input type="hidden" name="_csrf" th:value="${_csrf.token}">
+				
+				<button type="submit"><span th:text="#{cad_novo_cliente}"></span></button>
+
+			</form>
+		</div>
+
+
+	</div>
+
+</body>
+
+</html>

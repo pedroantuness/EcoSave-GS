@@ -1,0 +1,26 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos :: cabecalho(#{titulo_cad_dispositivo})}" />
+  <body>
+    <div class="container">
+        <div class="row">
+            <h1 th:text="#{titulo_cad_dispositivo}">Cadastrar Dispositivo</h1>
+        </div>
+        <div class="row">
+            <form th:object="${dispositivo}" action="/inserir_dispositivo" method="post">
+            <span th:text="#{nome}"> Nome: </span> <input class="form-control" type="text" th:field="*{nome}" th:errorclass="is-invalid">
+            <div class="invalid-feedback" th:errors="*{nome}"></div><br>
+            <span th:text="#{modelo}"> Modelo: </span> <input class="form-control" type="text" th:field="*{modelo}" th:errorclass="is-invalid">
+            <div class="invalid-feedback" th:errors="*{modelo}"></div><br>
+            <span th:text="#{id_usuario}"> ID Usuario: </span> <input class="form-control" type="text" th:field="*{usuario}" th:errorclass="is-invalid">
+            <div class="invalid-feedback" th:errors="*{usuario}"></div><br>
+			<span th:text="#{id_comodo}"> ID Comodo: </span> <input class="form-control" type="text" th:field="*{comodo}" th:errorclass="is-invalid">
+			<div class="invalid-feedback" th:errors="*{comodo}"></div><br>
+			<input type="hidden" name="_csrf" th:value="${_csrf.token}">
+            <button type="submit"><span th:text="#{btn_cad_dispositivo}"> Cadastrar Dispositivo</span></button>
+            </form>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+  </body>
+</html>
