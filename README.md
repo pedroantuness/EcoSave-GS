@@ -38,13 +38,13 @@ Após isso abra seu navegador e acesse localhost:8080/index e escolha um dos usu
 
 **Link para o video pitch:**
 
-    https://www.youtube.com
+    https://www.youtube.com/watch?v=G8SNC-25LB4
 
 ***
 
 **Link para o video demonstrativo:**
 
-    https://www.youtube.com
+    https://www.youtube.com/watch?v=geJxH4MwSo0
 
 ***
 
@@ -180,6 +180,6 @@ Para o próximo passo, será necessário criar um App Service no Azure.
 
 **Link para o video demonstrativo (DEVOPS):**
 
-    https://www.youtube.com
+    https://www.youtube.com/watch?v=niSOvSuDJjU
 
 ***
